@@ -4,6 +4,7 @@ import androidx.compose.animation.expandHorizontally
 import androidx.compose.animation.expandVertically
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.FloatingActionButtonElevation
@@ -38,14 +39,30 @@ fun FormDataDiri(modifier: Modifier
                 singleline = true,
                 shape = MaterialTheme.shapes.large,
                 modifier = modifier.width(width = 250.dp),
-                label =  {Text(text = "nama lengkap")},
+                label = { Text(text = "nama lengkap") },
                 onValueChange = {
                     textNama = it
                 }
             )
-
+            Row {
+                gender.forEach { item ->
+                    Row(
+                        modifier = Modifier.selectable(
+                            selected = textJK == item,
+                            onClick = { textJK = item }
+                        ), verticalAlignment = Alignment.CenterHorizontally) {
+                        RadioButton(
+                            selected = textJK == item,
+                            onClick = {
+                                textJK = item
+                            })
+                        Text(text = item)
+                    }
+                }
+            }
         }
     }
+
 
 
 }
