@@ -61,7 +61,7 @@ fun FormDataDiri(modifier: Modifier) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Pilihan Jenis Kelamin
+
         Row (
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center
